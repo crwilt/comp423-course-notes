@@ -72,4 +72,9 @@ go build -o hello-world main.go
 ./hello-world```
 
 !!! note "Distinction"
-    Although both `go build` and `go run` both output Hello, World! They do very different things. `go build` creates an executable file with your go code, and needs `./hello world` to run it. `go run` compiles and runs the program in one step.
+    Although both `go build` and `go run` both output `Hello, World! They do very different things. `go build` creates an executable file with your go code, and needs `./hello world` to run it. `go run` compiles and runs the program in one step.
+
+### Many of these instructions were pulled and adjusted from this:
+* Title: Starting a Static Website Project with MkDocs
+* Author: Kris Jordan 
+* Availability: https://comp423-25s.github.io/resources/MkDocs/tutorial/
