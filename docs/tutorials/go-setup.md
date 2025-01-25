@@ -33,3 +33,43 @@ git init
 1. In VS Code, open `directory-for-go`. You can do this via: File > Open Folder.
 2.  the **Dev Containers** extension for VS Code.
 3. Create a .devcontainer directory in the root of your project with the following file inside of this "hidden" configuration directory:`.devcontainer/devcontainer.json`
+
+Paste the following into `.devcontainer/devcontainer.json`:
+``` bash 
+{
+  "name": "Go-time",
+  "image": "mcr.microsoft.com/vscode/devcontainers/go",
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": ["golang.go"]
+    }
+}}
+```
+Reopen the project in the container by pressing `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac), typing "Dev Containers: Reopen in Container," and selecting the option. This may take a few minutes while the image is downloaded and the requirements are installed.
+
+
+## Step 3: Using Your Container
+Once your dev container setup completes, close the current terminal tab (trash can), open a new terminal pane within VSCode, and try running `go version` to see your dev container is running a recent version of Go without much effort! (go1.23.4 as of writing this)
+
+Next run `go mod init hello-world` in order to create a mod file that tracks dependencies
+
+Next make a file in the root directory called `main.go`. This will contain the code for your Hello, World! program. Once created paste the code below into it:
+```go
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("Hello, World!")
+}
+```
+In order to actually run your program put `go run main.go` in the terminal. You should see the output of your Hello, World! program. 
+
+An alternative way to run your program is by entering 
+```bash
+go build -o hello-world main.go
+./hello-world```
+
+!!! note "Distinction"
+    Although both `go build` and `go run` both output Hello, World! They do very different things. `go build` creates an executable file with your go code, and needs `./hello world` to run it. `go run` compiles and runs the program in one step.
